@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://127.0.0.1:3306/wtboot?&allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+
+mybatis-plus:
+  mapper-locations: classpath:/config/mapper/*Mapper.xm
+  global-config:
+    db-config:
+      id-type: id_worker
+      logic-delete-value: -1
+
+logging:
+  level:
+    com.hgcode.wtboot: info
+
