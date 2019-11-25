@@ -9,6 +9,9 @@ spring:
     hikari:
       maximum-pool-size: 10
       minimum-idle: 5
+  redis:
+    host: 127.0.0.1
+    port: 6379
 
 mybatis-plus:
   mapper-locations: classpath:/config/mapper/*Mapper.xm
@@ -16,6 +19,8 @@ mybatis-plus:
     db-config:
       id-type: id_worker
       logic-delete-value: -1
+
+
 
 logging:
   level:

@@ -1,4 +1,4 @@
-package com.hgcode.wtboot.rest;
+package com.hgcode.wtboot.web.rest;
 
 import com.baomidou.kisso.SSOHelper;
 import com.baomidou.kisso.security.token.SSOToken;

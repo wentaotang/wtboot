@@ -1,4 +1,4 @@
-package com.hgcode.wtboot.rest;
+package com.hgcode.wtboot.web.rest;
 
 import com.hgcode.wtboot.domain.UserDO;
 import com.hgcode.wtboot.repository.UserDOMapper;
