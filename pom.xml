@@ -19,7 +19,6 @@
         <mybatis-plus.version>3.2.0</mybatis-plus.version>
         <kisso.version>3.7.5</kisso.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
-        <HikariCP.version>3.4.1</HikariCP.version>
     </properties>
 
     <dependencies>
@@ -44,17 +43,10 @@
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-            <version>${HikariCP.version}</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.18</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/p6spy/p6spy -->
         <dependency>
@@ -97,7 +89,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version> <!-- or newer version -->
                 <configuration>
                     <source>${java.version}</source> <!-- depending on your project -->
                     <target>${java.version}</target> <!-- depending on your project -->
