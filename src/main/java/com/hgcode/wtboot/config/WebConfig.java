@@ -1,8 +1,6 @@
 package com.hgcode.wtboot.config;
 
-import com.baomidou.kisso.web.interceptor.SSOSpringInterceptor;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
