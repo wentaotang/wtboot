@@ -1,9 +1,12 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   profiles:
     active: test
+  application:
+    name: wtboot
+
 
 # 单点信息配置，全部可无
 kisso:
