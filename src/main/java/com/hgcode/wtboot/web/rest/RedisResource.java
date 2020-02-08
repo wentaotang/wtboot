@@ -1,10 +1,10 @@
 package com.hgcode.wtboot.web.rest;
 
-import org.redisson.api.RBitSet;
-import org.redisson.api.RBucket;
-import org.redisson.api.RedissonClient;
+import org.redisson.api.*;
+import org.redisson.client.codec.StringCodec;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -46,6 +46,20 @@ public class RedisResource {
         rBitSet.and();
         rBitSet.xor();
         System.out.println(rBitSet.cardinality());
+    }
+
+
+    @GetMapping("/map/put")
+    public void rmap() {
+        RMapCache<String,String> rmap= redissonClient.getMapCache("cache", StringCodec.INSTANCE);
+        rmap.put("abc","123",2L,TimeUnit.MINUTES);
+        rmap.put("def","456",3L,TimeUnit.MINUTES);
+    }
+
+    @GetMapping("/map/delete")
+    public void deteletMap(@RequestParam("key")String key) {
+        RMap<String,String>  rmap= redissonClient.getMapCache("cache");
+        rmap.fastRemove(key);
     }
 
 }

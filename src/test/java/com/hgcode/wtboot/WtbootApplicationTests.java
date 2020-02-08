@@ -10,9 +10,8 @@ class WtbootApplicationTests {
 
     @Test
     void contextLoads() {
-        double d= 1.5D;
-        int assingNums = new BigDecimal("1.6").toBigInteger().intValue();
-        System.out.println(assingNums);
+
+        System.out.println(15/10);
     }
 
 }
