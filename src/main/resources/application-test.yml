@@ -24,10 +24,10 @@ spring:
                         standard:
                             sharding-column: id
                             #algorithm-expression: ds1.orders_$->{id % 8}
-                            precise-algorithm-class-name: com.hgcode.wtboot.sharding.IdShardingAlgorithm
-                    #key-generator:
-                       # column: id
-                      #  type: SNOWFLAKE
+                            precise-algorithm-class-name: com.hgcode.wtboot.web.util.IdShardingAlgorithm
+                    key-generator:
+                        column: id
+                        type: SNOWFLAKE
         props:
             sql:
                 show: true
@@ -35,6 +35,24 @@ spring:
     redis:
         host: 127.0.0.1
         port: 6379
+
+    cloud:
+        stream:
+            rocketmq:
+                binder:
+                    name-server: 10.8.131.14:9876;10.8.131.15:9876
+            bindings:
+                order:
+                    destination: order-topic
+                    content-type: application/json
+                input5:
+                    destination: order-topic
+                    content-type: application/json
+                    group: order-test-group
+
+
+
+
 
 
 mybatis-plus:
@@ -45,8 +63,10 @@ mybatis-plus:
             logic-delete-value: -1
 
 
-
 logging:
     level:
         com.hgcode.wtboot: debug
+
+
+input5: input5
 

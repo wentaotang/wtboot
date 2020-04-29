@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.4.RELEASE</version>
+        <version>2.2.6.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.hgcode</groupId>
@@ -16,14 +16,13 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mybatis-plus.version>3.3.0</mybatis-plus.version>
-        <kisso.version>3.7.5</kisso.version>
+        <mybatis-plus.version>3.3.1</mybatis-plus.version>
+        <kisso.version>3.7.6</kisso.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
-        <redisson.version>3.12.1</redisson.version>
+        <redisson.version>3.12.5</redisson.version>
         <mysql.version>8.0.19</mysql.version>
         <sharding-jdbc.version>4.0.0</sharding-jdbc.version>
-        <hutool.version>5.1.2</hutool.version>
-        <rocketmq-spring-boot-starter.version>2.0.4</rocketmq-spring-boot-starter.version>
+        <hutool.version>5.3.2</hutool.version>
     </properties>
 
     <dependencies>
@@ -36,11 +35,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>kisso</artifactId>
             <version>${kisso.version}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
@@ -77,17 +76,32 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.rocketmq</groupId>
-            <artifactId>rocketmq-spring-boot-starter</artifactId>
-            <version>${rocketmq-spring-boot-starter.version}</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
+            <version>2.2.1.RELEASE</version>
         </dependency>
+
         <dependency>
             <groupId>cn.hutool</groupId>
-            <artifactId>hutool-core</artifactId>
+            <artifactId>hutool-poi</artifactId>
             <version>${hutool.version}</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.2</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-collections4</artifactId>
+                    <groupId>org.apache.commons</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
