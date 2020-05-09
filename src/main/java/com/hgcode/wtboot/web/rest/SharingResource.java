@@ -23,11 +23,9 @@ public class SharingResource {
     public void list() {
 
         List<OrdersDO> list = new ArrayList<>(100);
-        Snowflake snowflake = IdUtil.createSnowflake(1, 1);
         for (int i = 0; i < 100; i++) {
             OrdersDO ordersDO = new OrdersDO();
-            ordersDO.setUserId(snowflake.nextId());
-            ordersDO.setId(snowflake.nextId());
+            ordersDO.setUserId(1L);
             list.add(ordersDO);
         }
         ordersService.saveBatch(list);
@@ -37,11 +35,9 @@ public class SharingResource {
     public void batchUpdate() {
 
         List<Long> ids = new ArrayList<>();
-        ids.add(1207932619879223363L);
-        ids.add(1207932619879223371L);
-        ids.add(1207932619879223379L);
-        ids.add(1207932619879223387L);
-        ids.add(1208979500906450948L);
+        ids.add(1255854707751018497L);
+        ids.add(1255854707990093826L);
+        ids.add(1255854707977510915L);
 
         Collection<OrdersDO> list =  ordersService.listByIds(ids);
         for(OrdersDO ordersDO : list){

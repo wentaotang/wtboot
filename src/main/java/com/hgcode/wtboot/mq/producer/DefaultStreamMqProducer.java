@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 @Configuration
 @EnableBinding({MySource.class})
-public class DefaultRocketMQProducer {
+public class DefaultStreamMqProducer {
 
     @Resource
     private MySource source;

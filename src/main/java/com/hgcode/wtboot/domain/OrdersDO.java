@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName(value = "orders")
 public class OrdersDO {
 
-    @TableId(type = IdType.ID_WORKER,value = "id")
+    @TableId(type = IdType.ASSIGN_ID,value = "id")
     private Long id;
 
     @TableField(value = "user_id")

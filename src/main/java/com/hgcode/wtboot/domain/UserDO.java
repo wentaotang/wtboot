@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 @TableName(value = "t_user")
 public class UserDO extends BaseDO {
 
-    @TableId(type = IdType.ID_WORKER)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     @TableField(value = "user_name")

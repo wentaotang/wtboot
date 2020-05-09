@@ -1,7 +1,7 @@
 package com.hgcode.wtboot.web.rest;
 
 import com.hgcode.wtboot.domain.UserDO;
-import com.hgcode.wtboot.mq.producer.DefaultRocketMQProducer;
+import com.hgcode.wtboot.mq.producer.DefaultStreamMqProducer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,7 @@ import java.time.Instant;
 public class MqResource {
 
     @Resource
-    private DefaultRocketMQProducer produceConfiguration;
+    private DefaultStreamMqProducer produceConfiguration;
 
     @GetMapping("/send")
     public void string() throws Exception {
