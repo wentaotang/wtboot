@@ -10,4 +10,7 @@ import java.util.List;
 public interface OrdersDOMapper extends BaseMapper<OrdersDO> {
 
     void batchInsert(List<OrdersDO> list);
+
+    void updateXml(OrdersDO ordersDO);
+
 }

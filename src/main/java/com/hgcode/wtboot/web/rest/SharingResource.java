@@ -45,4 +45,11 @@ public class SharingResource {
         }
         ordersService.updateBatchById(list);
     }
+
+
+    @RequestMapping("/update")
+    public void update() {
+        OrdersDO dto =  ordersService.getById(1255854707751018497L);
+        ordersService.updateXml(dto);
+    }
 }

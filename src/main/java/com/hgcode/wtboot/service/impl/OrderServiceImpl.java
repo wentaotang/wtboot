@@ -6,6 +6,16 @@ import com.hgcode.wtboot.repository.OrdersDOMapper;
 import com.hgcode.wtboot.service.OrdersService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class OrderServiceImpl extends ServiceImpl<OrdersDOMapper, OrdersDO> implements OrdersService {
+
+    @Resource
+    private OrdersDOMapper ordersDOMapper;
+
+    @Override
+    public void updateXml(OrdersDO ordersDO) {
+        ordersDOMapper.updateXml(ordersDO);
+    }
 }
