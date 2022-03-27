@@ -2,18 +2,20 @@ package com.hgcode.wtboot;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hgcode.wtboot.domain.MemberDO;
 import com.hgcode.wtboot.service.MemberService;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
 import javax.annotation.Resource;
 
 /**
@@ -32,27 +34,33 @@ public class WtbootApplicationTests {
 
     @Test
     public void testMemberAdd() {
-        MemberDO memberDO = new MemberDO();
-        memberDO.setCode("80000001");
-        memberDO.setPhone("13466329314");
-        memberDO.setSex(1);
-        memberDO.setName("唐文韬");
-        memberDO.setStatus(0);
+        MemberDO memberDO = MemberDO.builder()
+                .code("80000001")
+                .phone("13466329314")
+                .sex(1)
+                .name("文涛")
+                .status(1).build();
         memberService.save(memberDO);
     }
 
     @Test
     public void testMemberUpdate() {
-        UpdateWrapper<MemberDO> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("id",1507975125541068802L).set("name","文涛-new");
-        memberService.update(updateWrapper);
+        MemberDO entity = MemberDO.builder()
+                .name("wentao" + RandomStringUtils.randomAlphabetic(3))
+                .build();
+        LambdaUpdateWrapper<MemberDO> updateWrapper = Wrappers.lambdaUpdate(MemberDO.class)
+                .eq(MemberDO::getId, 1508093544961679362L);
+        /**
+         * 如果entity为空，则自动填充功能无效，所以在使用update的方法时一定要注意， 你是否需要用到自动填充的功能。
+         */
+        memberService.update(entity, updateWrapper);
     }
 
     @Test
     public void testMemberSearch() {
-        LambdaQueryWrapper queryWrapper = Wrappers.lambdaQuery(MemberDO.class).eq(MemberDO::getId,21L).orderByDesc(MemberDO::getId);
-        Page page =new Page(1,10,true);
-        IPage<MemberDO> memberDOIPage = memberService.page(page,queryWrapper);
-        log.info("total:{},pages:{}",memberDOIPage.getTotal(),memberDOIPage.getPages());
+        LambdaQueryWrapper queryWrapper = Wrappers.lambdaQuery(MemberDO.class).orderByDesc(MemberDO::getId);
+        Page page = new Page(1, 10, true);
+        IPage<MemberDO> memberDOIPage = memberService.page(page, queryWrapper);
+        log.info("total:{},pages:{}", memberDOIPage.getTotal(), memberDOIPage.getPages());
     }
 }

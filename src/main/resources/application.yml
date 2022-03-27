@@ -6,8 +6,11 @@ spring:
     active: test
   application:
     name: wtboot
-    jackson:
-      time-zone: GMT+8
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
 
 logging:
   level:

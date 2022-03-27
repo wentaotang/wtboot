@@ -56,7 +56,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
             <scope>provided</scope>
-            <version>1.18.22</version>
         </dependency>
 
         <dependency>
@@ -96,13 +95,19 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source> <!-- depending on your project -->
-                    <target>${java.version}</target> <!-- depending on your project -->
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
                             <version>${org.mapstruct.version}</version>
+                        </path>
+                        <!-- 以防测试类中 lombok 不生效 -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
