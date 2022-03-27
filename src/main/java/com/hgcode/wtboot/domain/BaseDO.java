@@ -2,22 +2,35 @@ package com.hgcode.wtboot.domain;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
+import java.time.LocalDateTime;
 
-import java.time.Instant;
-
+/**
+* @desc：所有实体类的基类，所有的DO都应该继承此类
+* @author：wentao_tang
+* @date：2022/3/27 14:03
+**/
 public class BaseDO {
-
+    /**
+     * 创建人
+     */
     @TableField(value = "created_by")
     private String createdBy;
+    /**
+     * 创建时间
+     */
+    @TableField(value = "created_time",fill = FieldFill.INSERT)
+    private LocalDateTime createdTime;
+    /**
+     * 修改人
+     */
+    @TableField(value = "updated_by")
+    private String updateBy;
+    /**
+     * 修改时间
+     */
+    @TableField(value = "updated_time",fill = FieldFill.UPDATE)
+    private LocalDateTime updateTime ;
 
-    @TableField(value = "created_date",fill = FieldFill.INSERT)
-    private Instant createdDate = Instant.now();
-
-    @TableField(value = "last_modified_by")
-    private String lastModifiedBy;
-
-    @TableField(value = "last_modified_date",fill = FieldFill.UPDATE)
-    private Instant lastModifiedDate = Instant.now();
 
     public String getCreatedBy() {
         return createdBy;
@@ -27,27 +40,27 @@ public class BaseDO {
         this.createdBy = createdBy;
     }
 
-    public Instant getCreatedDate() {
-        return createdDate;
+    public LocalDateTime getCreatedTime() {
+        return createdTime;
     }
 
-    public void setCreatedDate(Instant createdDate) {
-        this.createdDate = createdDate;
+    public void setCreatedTime(LocalDateTime createdTime) {
+        this.createdTime = createdTime;
     }
 
-    public String getLastModifiedBy() {
-        return lastModifiedBy;
+    public String getUpdateBy() {
+        return updateBy;
     }
 
-    public void setLastModifiedBy(String lastModifiedBy) {
-        this.lastModifiedBy = lastModifiedBy;
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
     }
 
-    public Instant getLastModifiedDate() {
-        return lastModifiedDate;
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
     }
 
-    public void setLastModifiedDate(Instant lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
     }
 }
